@@ -28,7 +28,7 @@ func main() {
 	c.OnHTML("h2.store-name", func(e *colly.HTMLElement) {
 		/*writer.Write([]string{
 			e.ChildText("a[href]"),
-			e.ChildText("store-name"),
+			e.ChildText("a"),
 		})*/
 		fmt.Println("visiting")
 	})
