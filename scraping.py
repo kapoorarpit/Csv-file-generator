@@ -13,15 +13,15 @@ r = requests.get(URL,headers=header)
 
 soup = BeautifulSoup(r.text, features='html.parser') # If this line causes an error, run 'pip install html5lib' or install html5lib
 
+#--------------------------------------------
+
 vote = soup.select('span.rt_count',{'class':'cntanr'})
 name = soup.select('span.lng_cont_name',{'class':'cntanr'})
 rating = soup.select('span.green-box',{'class':'cntanr'})
 num = soup.select('span.mobilesv,i.res_contactic.resultimg',{'class':'contact-info'})
 img = soup.select('img.altImgcls', {'class':'cntanr'})
 
-#rating = soup.select('span.green-box',{'class':'cntanr'})
-
-#----------------------
+#--------------------------------------------------
 di = {'icon-acb': '0', 'icon-yz': '1','icon-acb': '0', 'icon-wx': '2', 'icon-vu': '3', 'icon-ts': '4','icon-rq': '5', 'icon-po': '6','icon-nm': '7', 'icon-lk': '8','icon-ji': '9', 'icon-ba': '-','icon-hg': ')', 'icon-fe': '(','icon-dc': '+' }
 #-----------------------------------------------
 
@@ -56,14 +56,4 @@ with open('data.csv', 'w') as f:
         temp1 = temp.split(",")
         write.writerow(temp1)
 
-'''
-data = response.text
-    soup = BeautifulSoup(data, features='html.parser')
 
-file = "data.csv"
-
-with open(file, 'w') as csvfile:
-    writer1 = csv.writer(csvfile)
-    writer1.writerows(r)
-    writer1.writerow(r)
-'''
