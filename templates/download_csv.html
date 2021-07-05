@@ -1,0 +1,8 @@
+{%extends 'home.html' %}
+
+{% block body %}
+<h3> download link for given URL</h3>
+{{filename}}
+<br>
+<a href="{{url_for('download_file')}}">donwload link</a>
+{% endblock %}
