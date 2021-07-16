@@ -57,64 +57,74 @@ def completesearch(search_url):
             'icon-po': '6', 'icon-nm': '7', 'icon-lk': '8', 'icon-ji': '9', 'icon-ba': '-', 'icon-hg': ')', 'icon-fe': '(', 'icon-dc': '+'}
     # -----------------------------------------------
 
-    with open("data.csv", 'w') as f:
-        #write = csv.writer(f)
-        for i in name:
-            temp = list_item()
-            setattr(temp, 'name', i.text)
-            li.append(temp)
+    '''with open("data.csv", 'w') as f:
+        write = csv.writer(f)'''
+    for i in name:
+        temp = list_item()
+        setattr(temp, 'name', i.text)
+        li.append(temp)
 
-        count = 0
-        even = 0
-        for i in vote:
-            if even == 1:
-                even = 0
-                continue
-            else:
-                even = 1
-            temp = i.get_text().strip()
-            q = temp.split(",")
-            w = q[0].split("\t")
-            setattr(li[count],'vote', (w[0].split(","))[0])
-            count = count + 1
+    count = 0
+    even = 0
+    for i in vote:
+        if even == 1:
+            even = 0
+            continue
+        else:
+            even = 1
+        temp = i.get_text().strip()
+        q = temp.split(",")
+        w = q[0].split("\t")
+        setattr(li[count],'vote', (w[0].split(","))[0])
+        count = count + 1
 
-        count = 0
-        for i in rating:
-            setattr(li[count], 'rating', i.text)
-            count = count + 1
+    count = 0
+    for i in rating:
+        setattr(li[count], 'rating', i.text)
+        count = count + 1
 
-        count = 0
-        str = ""
-        for i in num:
-            if i.has_attr("class"):
-                if(i['class'][1]) == 'resultimg':
-                    q = str.split(",")
-                    if q==[""]:
-                        continue
-                    setattr(li[count], 'num', q[0])
-                    count = count + 1
-                    str = ""
+    count = 0
+    str = ""
+    for i in num:
+        if i.has_attr("class"):
+            if(i['class'][1]) == 'resultimg':
+                q = str.split(",")
+                if q==[""]:
                     continue
-                if len(i['class']) != 0:
-                    q = (di[i['class'][1]])
-                    str = str+q
-        q = str.split(",")
-        setattr(li[count], 'num', q[0])
+                setattr(li[count], 'num', q[0])
+                count = count + 1
+                str = ""
+                continue
+            if len(i['class']) != 0:
+                q = (di[i['class'][1]])
+                str = str+q
+    q = str.split(",")
+    setattr(li[count], 'num', q[0])
 
-        count = 0
-        for i in img:
-            temp = i['data-src']
-            temp1 = temp.split(",")
-            setattr(li[count], 'img', temp1[0])
-            count = count + 1
+    count = 0
+    for i in img:
+        temp = i['data-src']
+        temp1 = temp.split(",")
+        setattr(li[count], 'img', temp1[0])
+        count = count + 1
 
-        '''for i in li:
-            print(i.name, i.vote, i.rating, i.num, i.img)'''
- 
-        global json_string 
-        json_string = json.dumps(li, default=obj_dict)
-        print(json_string)
-        #print(json_string)
+    '''for i in li:
+        print(i.name, i.vote, i.rating, i.num, i.img)'''
+
+    global json_string 
+    json_string = json.dumps(li, default=obj_dict)
+    x = json.loads(json_string)
+
+    f = csv.writer(open("data.csv", "w"))
+    f.writerow(["name", "vote", "rating", "num", "img"])
+    for x in x:
+        f.writerow([x["name"],
+                    x["vote"],
+                    x["rating"],
+                    x["num"],
+                    x["img"]])
+    print(json_string)
+#print(json_string)
 
 
 
