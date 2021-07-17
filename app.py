@@ -127,7 +127,24 @@ def completesearch(search_url):
 #print(json_string)
 
 
+@app.route('/submit_url', methods=['POST'])
+def submit_url():
+    search_url= request.get_json()
+    print(search_url['url'])
+    completesearch(search_url['url'])
+    return 'successful', 201
 
+
+@app.route('/download')
+def give_data():
+    global json_string 
+    return json_string
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+'''
 # home page---------------
 @app.route('/', methods=['POST', 'GET'])
 def inde():
@@ -151,7 +168,4 @@ def download_file():
     p = ran
     return send_file(p, as_attachment=True)
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
+'''

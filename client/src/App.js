@@ -1,30 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { render } from 'react-dom';
-//import One from './One';
+import One from './One';
+import { SearchInfo} from "./search";
 
-class App extends Component{
-  constructor(){
-      super()
-      this.state={}
-  }
-
-  postData(){
-    alert('are you sure')
-  }
-  render(){
-    return(
-    <div>     
-        <h2>Search URL</h2>
-        <form>
-        <label>
-        Name:
-        <input type="text" name="link" />
-        </label>
-        <button onClick={ ()=> this.postData()}>Submit</button>
-        </form>
-    </div>
-  )
-  }
+function App(){
+    return (
+        <div>
+            <SearchInfo/>
+            <One/>
+        </div>
+    );
 }
 
-export default App 
+export default App;

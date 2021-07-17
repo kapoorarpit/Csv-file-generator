@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { Component, useState, useEffect } from 'react'
+import { render } from 'react-dom';
 
 function One(){
-    return(
-        <div>
-            <h1> this is 1</h1>
-        </div>
-    )
+    useEffect(()=>{
+        fetch("/download").then(response=>
+            response.json().then(data=>{
+                console.log(data)
+            })
+        );
+      },[]);
+
+      return <div />;
 }
 
 export default One
