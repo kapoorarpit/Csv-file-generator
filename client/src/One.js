@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react'
-import { render } from 'react-dom';
+import React, {  useState, useEffect } from 'react'
+//import { render } from 'react-dom';
 import {Data} from './Data'
 
 function One(){
@@ -13,7 +13,7 @@ function One(){
             })
         );
       },[]);
-
+      
       return (
           <div>
               <Data data={data} />
