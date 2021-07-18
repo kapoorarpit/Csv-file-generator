@@ -112,6 +112,7 @@ def completesearch(search_url):
         print(i.name, i.vote, i.rating, i.num, i.img)'''
 
     global json_string 
+    json_string = ""
     json_string = json.dumps(li, default=obj_dict)
     x = json.loads(json_string)
 
@@ -139,8 +140,6 @@ def submit_url():
 def give_data():
     global json_string 
     return json_string
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
