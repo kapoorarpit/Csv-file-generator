@@ -141,6 +141,7 @@ def give_data():
     global json_string 
     return json_string
 
+
 if __name__ == "__main__":
     app.run(debug=True)
 '''
