@@ -142,6 +142,14 @@ def give_data():
     return json_string
 
 
+@app.route('/download1')
+def give_data1():
+    global json_string 
+    n = json_string
+    json_string=""
+    return n
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 '''
