@@ -37,9 +37,10 @@ li = []
 
 def completesearch(search_url):
     URL = search_url
+    print(request.headers.get('User-Agent'))
     header = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"}
-    r = requests.get(URL, headers=header)
+        "User-Agent": request.headers.get('User-Agent')}
+    r = requests.get(URL,headers=header )
 
     soup = BeautifulSoup(r.text, features='html.parser')
 
@@ -140,6 +141,15 @@ def submit_url():
 def give_data():
     global json_string 
     return json_string
+
+
+@app.route('/download1')
+def give_data1():
+    global json_string 
+    n = json_string
+    json_string=""
+    return n
+
 
 if __name__ == "__main__":
     app.run(debug=True)
