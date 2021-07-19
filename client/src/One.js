@@ -7,7 +7,7 @@ function One(){
     const [data, setdata]= useState([]);
 
     useEffect(()=>{
-        fetch("/download").then(response=>
+        fetch("/download1").then(response=>
             response.json().then(data=>{
                 setdata(data)
             })
