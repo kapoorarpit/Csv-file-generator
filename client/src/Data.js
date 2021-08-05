@@ -8,7 +8,7 @@ export const Data = ({data})=>{
             {data.map(item=>{
                 return(
                 <div class="">
-                <div class="rounded-full py-6 px-5... bg-green-300  ...">
+                <div class="rounded-full py-6 px-5... bg-white">
                     <List.Item key={item.name}>
                         <li class="px-20 py-3 ui-monospace text-3xl ... font-extrabold ...">
                            Name : {item.name}
