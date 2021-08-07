@@ -4,8 +4,10 @@ export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-blueGray-500 mb-3">
-      <div className="fixed left-0 right-0 bg-white px-10 py-5">
+      <nav className="relative flex flex-wrap items-center justify-between px-2 bg-blue-500 mb-3 shadow-3xl ...">
+      <div className="border-light-blue-500 border-opacity-100 ... shadow-2xl ...">
+      <div className="fixed left-0 right-0 bg-white px-10 py-5 shadow-2xl ...">
+      <div className="border-2 border-light-blue-500 border-opacity-100 ... shadow-2xl ...">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between ">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
@@ -58,7 +60,11 @@ export default function Navbar({ fixed }) {
           </div>
         </div>
         </div>
+        </div>
+        </div>
       </nav>
+      <br/>
+      <br/>
     </>
   );
 }

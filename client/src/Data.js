@@ -4,26 +4,27 @@ import { List } from 'semantic-ui-react';
 
 export const Data = ({data})=>{
     return (
-        <List>
+        <div class="">
+        <List class="grid grid-cols-3 gap-5">
             {data.map(item=>{
                 return(
-                <div class="">
-                <div class="rounded-full py-6 px-5... bg-white">
+                <div class="py-4 bg-gray-700 border-double border-4 border-white ...">
                     <List.Item key={item.name}>
                         <li class="px-20 py-3 ui-monospace text-3xl ... font-extrabold ...">
                            Name : {item.name}
                         </li>
-                        <li class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold  ...">Votes: {item.vote}</li>
-                        <li class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold ...">Ratings: {item.rating}</li>
-                        <li class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold ...">Contact-number: {item.num}</li>
-                        <li class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold  ...">Image-link: {item.img}</li>
+                        <div class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold  ...">Votes: {item.vote}</div>
+                        <div class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold ...">Ratings: {item.rating}</div>
+                        <div class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold ...">Contact-number: {item.num}</div>
+                        <img src={item.img} alt="N/A" />
+                        {/* <li class="px-20 py-1 font-mono ... ui-monospace text-lg ... font-semibold  ...">Image-link: {item.img}</li> */}
                     </List.Item>
-                </div>
                 <br/>
                 <br/>
                 </div>
                 );
             })}
         </List>
+        </div>
     );
 };
